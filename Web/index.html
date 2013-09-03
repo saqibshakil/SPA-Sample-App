@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>My Single Page Application</title>
+    <meta charset="utf-8" />
+    <!-- Internet Explorer has many rendering engines ready for use. What this line of code basically
+		does is force IE to use the most up to date rendering engine that it has available,
+		so that your pages will render as well as possible. It then goes on to talk about Chrome Frame.
+		Chrome Frame is a plugin for IE6, 7, and 8 which brings all the rendering, 
+		and js power of Google Chrome to IE. If the user has it installed, we render our site using it -->
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <!-- The favicon is pretty much normality these day. the interesting bit here is the apple-touch-icon
+		which is used if you save a bookmark to your home screen on an apple touch device such as an iPad or iPhone.
+		Interestingly enough, android also supports its usage. As far as I can tell, the apple-touch-icon
+		size is 60px by 60px. As the comment says, if your icons are in the root of your domain,
+		these links aren’t required. -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete the references -->
+    <link href="css/animation.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/kendo.common.min.css" rel="stylesheet">
+    <link href="css/kendo.default.min.css" rel="stylesheet">
+    <script data-main="js/main" src="js/libs/require/require-2.0.5.js"></script>
+    <!--
+         Modernizer library detects HTML5 and CSS3 features in the user’s browser.
+         
+         For touch devices or small-resolution screens show the mobile client.
+         By enabling the mobile client on a small-resolution screen
+         we allow for testing outside a mobile device (like for example the Mobile Browser
+         simulator in JBoss Tools and JBoss Developer Studio).
+         
+    <script type="text/javascript" src="js/libs/modernizr-2.6.1.js"></script>
+    <script type="text/javascript">
+        var loader = document.createElement("script")
+        loader.setAttribute("src", "js/libs/require-2.0.6.js");
+        if (Modernizr.touch || Modernizr.mq("only all and (max-width: 480px)")) {
+           environment = "mobile"
+        } else {
+           environment = "desktop"
+        };
+        loader.setAttribute("data-main","js/" + environment + "-config");
+        document.head.appendChild(loader)
+    </script>
+    -->
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </a><a class="brand" href="#Home">My Single Page Application</a>
+                <div class="nav-collapse collapse">
+                    <div id="top_left">
+                    </div>
+                    <div>
+                        <ul id="top_right" class="nav pull-right">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        &nbsp;</div>
+    <div>
+        &nbsp;</div>
+    <div>
+        &nbsp;</div>
+    <div class="container-fluid">
+        <div id="app_main_content" class="container-fluid">
+        </div>
+        <footer>
+            <p>My Single Page Application </p>
+        </footer>
+    </div>
+
+    <div class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;</button>
+            <h3>
+                Modal header</h3>
+        </div>
+        <div class="modal-body" id="modal">
+            <p>
+                One fine body…</p>
+        </div>
+    </div>
+</body>
+</html>

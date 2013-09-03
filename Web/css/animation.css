@@ -1,0 +1,20 @@
+﻿.baseAnimation {
+    word-wrap:break-word;
+    -moz-transition:left .80s, right .80s, opacity .80s;
+    -webkit-transition:left .80s, right .80s, opacity .80s;
+    -o-transition:left .80s, right .80s, opacity .80s;
+    -ms-transition:left  .80s,right .80s, opacity .80s;
+    transition:left .80s, right .80s, opacity .80s;
+}
+.displayed {
+    opacity: 1;
+}
+
+.loaded {
+    opacity: 0;
+}
+
+.unloaded {
+    opacity: 0;
+}
+
