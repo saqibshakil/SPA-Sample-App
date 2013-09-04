@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\SharedLibraries\</OutputPath>
+    <OutputPath>..\Web\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -52,10 +52,12 @@
     <ProjectReference Include="..\GL.Base\GL.Base.csproj">
       <Project>{1D1AE1CC-101A-4D68-AE42-64AFD39BB001}</Project>
       <Name>GL.Base</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\GL.Core\GL.Core.csproj">
       <Project>{48508B9E-AF82-4C1B-91BE-A70C03C50EB0}</Project>
       <Name>GL.Core</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

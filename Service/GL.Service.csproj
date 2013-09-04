@@ -49,11 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GL.Base\GL.Base.csproj">
-      <Project>{1D1AE1CC-101A-4D68-AE42-64AFD39BB001}</Project>
+      <Project>{1d1ae1cc-101a-4d68-ae42-64afd39bb001}</Project>
       <Name>GL.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\GL.Core\GL.Core.csproj">
-      <Project>{48508B9E-AF82-4C1B-91BE-A70C03C50EB0}</Project>
+      <Project>{48508b9e-af82-4c1b-91be-a70c03c50eb0}</Project>
       <Name>GL.Core</Name>
     </ProjectReference>
   </ItemGroup>

@@ -31,7 +31,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53581</DevelopmentServerPort>
+          <DevelopmentServerPort>64061</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/Web</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
@@ -240,16 +240,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Service\GL.Service.csproj">
-      <Project>{fdc55262-cfa0-4f64-9985-f629ed796862}</Project>
-      <Name>GL.Service</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Service\GL.Service.csproj">
+      <Project>{fdc55262-cfa0-4f64-9985-f629ed796862}</Project>
+      <Name>GL.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
 </Project>

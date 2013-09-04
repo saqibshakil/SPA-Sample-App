@@ -25,7 +25,6 @@ require.config({
         routefilter: "libs/backbone.routefilter/backbone-routefilter",
 		marionette: "libs/backbone.marionette/backbone.marionette",
 		localstorage: "libs/backbone.localstorage/backbone.localstorage-1.0",
-        kendoweb: "libs/kendo.web/kendo.web.min",
         bootstrap: "libs/bootstrap/bootstrap.min",
         knockout: "libs/knockout/knockout.min",
         knockback: "libs/knockout/knockback.min",
@@ -57,10 +56,7 @@ require.config({
         	// These script dependencies should be loaded before loading backbone.js
         	deps: ["underscore", "jquery"]
 	    },
-        "kendoweb": {
-        	deps: ["jquery"],
-            exports: "kendo"
-	    },
+
         "routefilter": {
         	deps: ["underscore", "jquery"]
 	    },
