@@ -228,7 +228,9 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
         });
 
         GL.TransitionRegion = Backbone.Marionette.Region.extend({
-
+            initialize:function(){
+                //$(this.el).addClass("baseAnimation");
+            },
             show: function (view) {
                 var self = this;
                 this.ensureEl();
@@ -239,22 +241,33 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
 
                 if (isDifferentView) {
                     this.promiseClose(view).done(function () {
+                        view.$el.addClass("baseAnimation");
+                        view.$el.addClass("loaded");
+                        console.log("loaded added");
                         view.render();
+                        
 
                         if (isDifferentView || isViewClosed) {
-                            view.render();
+                            self.open(view);
 
-                            if (isDifferentView || isViewClosed) {
-                                self.open(view);
-                            }
-
-                            self.currentView = view;
-                            self.mycurrentView = view;
-                            self.$el.addClass("baseAnimation").addClass("loaded");
-                            self.$el.removeClass("loaded").addClass("displayed");
-                            Marionette.triggerMethod.call(self, "show", view);
-                            Marionette.triggerMethod.call(view, "show");
                         }
+
+                        self.currentView = view;
+
+                        view.$el.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
+                            view.$el.off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                            view.$el.removeClass("loaded");
+                            console.log("loaded removed");
+                            
+                        });
+                        setTimeout(function () {
+                            view.$el.addClass("ondisplay");
+                            console.log("displayed");
+                        }, 1);
+
+                        Marionette.triggerMethod.call(self, "show", view);
+                        Marionette.triggerMethod.call(view, "show");
+                        
 
                         
                     });
@@ -271,14 +284,16 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
                     deferred.resolve();
                     return  deferred.promise();
                 }
-                var el = this.$el;
+                var el = this.currentView.$el;
                 el.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
                     el.off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                    el.removeClass("unloaded").removeClass("displayed");
+                    el.removeClass("unloaded");
+                    console.log("unloaded added");
                     that.close();
                     deferred.resolve();
                 });
-                el.addClass("unloaded");
+                el.removeClass("ondisplay").addClass("unloaded");
+                console.log("ondisplay removed unloaded added");
                 return deferred.promise();
                 
             }

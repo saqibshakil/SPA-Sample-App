@@ -6,8 +6,8 @@
     "jquery", 
     "underscore", 
     "text!./templates/main.htm", 
-    "kendoweb"
-], function (GL, namespace, Backbone, Marionette, $, _, MainTemplate, kendo) {
+    
+], function (GL, namespace, Backbone, Marionette, $, _, MainTemplate) {
     var app = namespace.app;
     app.module("Connect", function (Connect, app, Backbone, Marionette, $, _, namespace, contentTemplate, todoItemTemplate, TodosModule) {
         Connect.Views = {

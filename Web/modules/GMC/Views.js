@@ -8,10 +8,10 @@
 	"underscore",
 
     "text!./templates/main.htm",
-    "kendoweb"
+    
 ],
 
-function (GL, namespace, Backbone, Marionette, $, _, MainTemplate, kendo) {
+function (GL, namespace, Backbone, Marionette, $, _, MainTemplate) {
 
     // Shorthand the application namespace
     var app = namespace.app;

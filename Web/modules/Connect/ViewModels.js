@@ -4,9 +4,8 @@
     "marionette", 
     "jquery", 
     "underscore", 
-    "kendoweb", 
     "./Models"
-], function (namespace, Backbone, Marionette, $, _, kendo) {
+], function (namespace, Backbone, Marionette, $, _) {
     var app = namespace.app;
     app.module("Connect", function (Connect, app, Backbone, Marionette, $, _) {
         Connect.ViewModels = {

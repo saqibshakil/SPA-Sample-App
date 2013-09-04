@@ -5,10 +5,10 @@
     "marionette",
 	"jquery",
 	"underscore",
-    "kendoweb"
+    
 ],
 
-function (namespace, Backbone, Marionette, $, _, kendo) {
+function (namespace, Backbone, Marionette, $, _) {
 
     // Shorthand the application namespace
     var app = namespace.app;

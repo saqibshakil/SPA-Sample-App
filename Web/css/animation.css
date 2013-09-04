@@ -1,20 +1,33 @@
 ﻿.baseAnimation {
     word-wrap:break-word;
-    -moz-transition:left .80s, right .80s, opacity .80s;
-    -webkit-transition:left .80s, right .80s, opacity .80s;
-    -o-transition:left .80s, right .80s, opacity .80s;
-    -ms-transition:left  .80s,right .80s, opacity .80s;
-    transition:left .80s, right .80s, opacity .80s;
+    -moz-transition:all .80s;
+    -webkit-transition:all .80s;
+    -o-transition:all .80s;
+    -ms-transition:all .80s;
+    transition:all .80s;
 }
-.displayed {
-    opacity: 1;
-}
+
 
 .loaded {
-    opacity: 0;
+    opacity:0;
+    left: 80px;
 }
 
+div.ondisplay
+{
+    opacity: 1;
+    left:0px;
+}
 .unloaded {
-    opacity: 0;
+    opacity:0;
+    left: 70px;
 }
 
+#app_main_content{
+    
+    width:100%;
+    padding:5px;
+    margin:5px;
+    
+    overflow:hidden;
+}

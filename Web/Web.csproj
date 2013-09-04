@@ -219,6 +219,12 @@
     <Content Include="js\main.min.js.map">
       <DependentUpon>main.js</DependentUpon>
     </Content>
+    <Content Include="modules\Connect\ViewModels.min.js.map">
+      <DependentUpon>ViewModels.js</DependentUpon>
+    </Content>
+    <Content Include="modules\Connect\Views.min.js.map">
+      <DependentUpon>Views.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

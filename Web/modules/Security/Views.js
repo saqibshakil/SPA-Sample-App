@@ -12,10 +12,10 @@
     "text!./templates/loginuser.htm",
     "text!./templates/modules.htm",
     "text!./templates/ModuleItemViewTemplate.htm",
-    "kendoweb"
+    
 ],
 
-function (GL, namespace, Backbone, Marionette, $, _, loginTemplate, noUserLoggedInTemplate, UserLoggedInTemplate, modulesTemplate, moduleItemViewTemplate, kendo) {
+function (GL, namespace, Backbone, Marionette, $, _, loginTemplate, noUserLoggedInTemplate, UserLoggedInTemplate, modulesTemplate, moduleItemViewTemplate) {
 
     // Shorthand the application namespace
     var app = namespace.app;
