@@ -1,26 +1,27 @@
 ﻿.baseAnimation {
     word-wrap:break-word;
-    -moz-transition:all .80s;
-    -webkit-transition:all .80s;
-    -o-transition:all .80s;
-    -ms-transition:all .80s;
-    transition:all .80s;
+    -moz-transition:all .25s;
+    -webkit-transition:all .25s;
+    -o-transition:all .25s;
+    -ms-transition:all .25s;
+    transition:all .25s;
 }
 
 
 .loaded {
     opacity:0;
-    left: 80px;
+    margin-left: -1000px;
 }
 
 div.ondisplay
 {
     opacity: 1;
-    left:0px;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 .unloaded {
     opacity:0;
-    left: 70px;
+    margin-right: -1000px;
 }
 
 #app_main_content{

@@ -4,7 +4,7 @@
         libs: "libs",
         templates: "../templates",
         jquery: "libs/jquery/jquery-1.8.0",
-        underscore: "libs/underscore/underscore-1.3.3",
+        underscore: "libs/underscore/underscore",
         backbone: "libs/backbone/backbone",
         subroute: "libs/backbone.subroute/backbone-subroute",
         routefilter: "libs/backbone.routefilter/backbone-routefilter",
@@ -30,7 +30,8 @@
         "marionette": {
             deps: [
                 "underscore", 
-                "jquery"
+                "jquery", 
+                "backbone"
             ],
             exports: "Marionette"
         },

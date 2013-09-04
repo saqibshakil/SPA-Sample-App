@@ -69,6 +69,7 @@ function (namespace, Backbone, Marionette, $, _) {
                 viewModel.controller = this;
 
                 app.content.show(view);
+
             },
 
             loginwithcallback: function (route) {
@@ -85,7 +86,7 @@ function (namespace, Backbone, Marionette, $, _) {
 
             initialize: function (options) {
                 this.options = options;
-                _.bindAll(this);
+                _.bindAll(this, "login", "loginwithcallback","gotoHome");
             },
 
             routes: {

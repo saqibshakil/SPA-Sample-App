@@ -72,7 +72,8 @@ function (GL, namespace, Backbone, Marionette, $, _, loginTemplate, noUserLogged
                 }
             },
             onclick: function () {
-                //this.model.set("IsSelected", true);
+                this.model.set("IsSelected", true);
+                this.trigger("selected", "");
             }
         });
 
@@ -82,7 +83,7 @@ function (GL, namespace, Backbone, Marionette, $, _, loginTemplate, noUserLogged
             className: 'nav',
             itemView: Security.Views.Module,
             itemViewEventPrefix: "itemview",
-            beforeRender: function () {
+            onBeforeRender: function () {
                 this.on("itemview:selected", function (childView, msg) {
                     _.each(this.collection.models, function (model) {
                         if (!(model === childView.model)) {

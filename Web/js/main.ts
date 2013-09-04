@@ -19,7 +19,7 @@ require.config({
         
 		// Libraries
 		jquery: "libs/jquery/jquery-1.8.0",
-		underscore: "libs/underscore/underscore-1.3.3",
+		underscore: "libs/underscore/underscore",
 		backbone: "libs/backbone/backbone",
         subroute: "libs/backbone.subroute/backbone-subroute",
         routefilter: "libs/backbone.routefilter/backbone-routefilter",
@@ -49,7 +49,7 @@ require.config({
             exports: "Backbone"
 	    },
         "marionette": {
-            deps: ["underscore", "jquery"],
+            deps: ["underscore", "jquery","backbone"],
             exports: "Marionette"
         },
 	    "subroute": {

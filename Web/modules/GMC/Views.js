@@ -25,6 +25,7 @@ function (GL, namespace, Backbone, Marionette, $, _, MainTemplate) {
         GMC.Views.MainView = Marionette.ItemView.extend({
             template: MainTemplate,
             onShow: function () {
+                var that = this;
                 var chart;
                 var legend;
 
@@ -55,6 +56,10 @@ function (GL, namespace, Backbone, Marionette, $, _, MainTemplate) {
 
                 require(['http://www.amcharts.com/lib/amcharts.js'], function (AmChart) {
                     // PIE CHART
+                    if (that.isClosed) {
+                        return;
+                    }
+
                     chart = new AmCharts.AmPieChart();
                     chart.dataProvider = chartData;
                     chart.titleField = "country";
