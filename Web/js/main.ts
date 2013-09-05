@@ -98,7 +98,7 @@ function (namespace, $, Backbone, GL, General) {
         security: "#top_right",
         content: {
             selector: "#app_main_content",
-            regionType: app.GL.TransitionRegion
+            regionType: app.GL.SlideInOutTransitionRegion
         }
    
     });

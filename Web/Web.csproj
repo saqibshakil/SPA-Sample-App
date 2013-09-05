@@ -236,6 +236,9 @@
     <Content Include="js\libs\gl.js.map">
       <DependentUpon>gl.ts</DependentUpon>
     </Content>
+    <Content Include="js\libs\gl.min.js.map">
+      <DependentUpon>gl.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

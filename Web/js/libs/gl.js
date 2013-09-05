@@ -164,6 +164,24 @@
         GL.TransitionRegion = Backbone.Marionette.Region.extend({
             initialize: function () {
             },
+            addTransitionInit: function (view) {
+                view.$el.addClass("loaded");
+            },
+            removeTransitionInit: function (view) {
+                view.$el.removeClass("loaded");
+            },
+            addTransitionIn: function (view) {
+                view.$el.addClass("ondisplay");
+            },
+            removeTransitionIn: function (view) {
+                view.$el.removeClass("ondisplay");
+            },
+            addTransitionOut: function (view) {
+                view.$el.addClass("unloaded");
+            },
+            removeTransitionOut: function (view) {
+                view.$el.removeClass("unloaded");
+            },
             show: function (view) {
                 var self = this;
                 this.ensureEl();
@@ -172,7 +190,7 @@
                 if(isDifferentView) {
                     this.promiseClose(view).done(function () {
                         view.$el.addClass("baseAnimation");
-                        view.$el.addClass("loaded");
+                        self.addTransitionInit(view);
                         console.log("loaded added");
                         view.render();
                         if(isDifferentView || isViewClosed) {
@@ -181,11 +199,11 @@
                         self.currentView = view;
                         view.$el.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
                             view.$el.off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                            view.$el.removeClass("loaded");
+                            self.removeTransitionInit(view);
                             console.log("loaded removed");
                         });
                         setTimeout(function () {
-                            view.$el.addClass("ondisplay");
+                            self.addTransitionIn(view);
                             console.log("displayed");
                         }, 1);
                         Marionette.triggerMethod.call(self, "show", view);
@@ -194,23 +212,44 @@
                 }
             },
             promiseClose: function (view) {
-                var that = this;
+                var self = this;
                 var deferred = $.Deferred();
-                if(!this.currentView || this.currentView.isClosed) {
+                if(!self.currentView || self.currentView.isClosed) {
                     deferred.resolve();
                     return deferred.promise();
                 }
-                var el = this.currentView.$el;
-                el.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
-                    el.off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                    el.removeClass("unloaded");
+                var cView = this.currentView;
+                cView.$el.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
+                    cView.$el.off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                    self.removeTransitionOut(cView);
                     console.log("unloaded added");
-                    that.close();
+                    self.close();
                     deferred.resolve();
                 });
-                el.removeClass("ondisplay").addClass("unloaded");
+                self.removeTransitionIn(cView);
+                self.addTransitionOut(cView);
                 console.log("ondisplay removed unloaded added");
                 return deferred.promise();
+            }
+        });
+        GL.SlideInOutTransitionRegion = GL.TransitionRegion.extend({
+            addTransitionInit: function (view) {
+                view.$el.addClass("slideinoutloaded");
+            },
+            removeTransitionInit: function (view) {
+                view.$el.removeClass("slideinoutloaded");
+            },
+            addTransitionIn: function (view) {
+                view.$el.addClass("slideinoutondisplay");
+            },
+            removeTransitionIn: function (view) {
+                view.$el.removeClass("slideinoutondisplay");
+            },
+            addTransitionOut: function (view) {
+                view.$el.addClass("slideinoutunloaded");
+            },
+            removeTransitionOut: function (view) {
+                view.$el.removeClass("slideinoutunloaded");
             }
         });
         return app.GL;

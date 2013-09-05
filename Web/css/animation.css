@@ -24,6 +24,22 @@ div.ondisplay
     margin-right: -1000px;
 }
 
+
+.slideinoutloaded {
+    margin-left: -1000px;
+    margin-right: 1000px;
+}
+
+div.slideinoutondisplay
+{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.slideinoutunloaded {
+    margin-left: 1000px;
+    margin-right: -1000px;
+}
+
 #app_main_content{
     
     width:100%;
