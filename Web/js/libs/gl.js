@@ -27,7 +27,7 @@
             token = app.Security.Models.loggedInUser.get("LoginToken");
             $.ajax({
                 type: 'POST',
-                url: '/services/Service.svc/Command',
+                url: 'services/Service.svc/Command',
                 data: JSON.stringify({
                     LoginToken: token,
                     Command: {
@@ -84,7 +84,7 @@
                 });
                 $.ajax({
                     type: 'POST',
-                    url: '/services/Service.svc/Commands',
+                    url: 'services/Service.svc/Commands',
                     data: JSON.stringify({
                         LoginToken: token,
                         Commands: commands

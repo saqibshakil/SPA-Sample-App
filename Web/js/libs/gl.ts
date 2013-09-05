@@ -76,9 +76,9 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
 
             $.ajax({
                 type: 'POST',
-                url: '/services/Service.svc/Command',
+                url: 'services/Service.svc/Command',
                 data: JSON.stringify({
-                    LoginToken: token,
+                    LoginToken: token, 
                     Command: {
                         UniqueIdentifier: Math.floor((Math.random() * 1000) + 1),
                         CommandName: type,
@@ -137,7 +137,7 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
                 });
                 $.ajax({
                     type: 'POST',
-                    url: '/services/Service.svc/Commands',
+                    url: 'services/Service.svc/Commands',
                     data: JSON.stringify({
                         LoginToken: token,
                         Commands: commands
