@@ -3,16 +3,16 @@
 /// <reference path="../../typings/marionette.d.ts" />
 define([
 // Libs
-	"namespace",
-	"backbone",
+    "namespace",
+    "backbone",
     "subroute",
     "marionette",
-	"jquery",
-	"underscore",
-    
+    "jquery",
+    "underscore",
+
     "knockout",
-], 
- 
+],
+
 function (namespace, Backbone, s, Marionette, $, _, ko) {
 
     // Shorthand the application namespace
@@ -196,7 +196,7 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
                     var collection = app.Security.UserModules;
 
                     var mod = collection.where({ ModName: ModName });
-                    if(mod.length>=1)
+                    if (mod.length >= 1)
                         mod[0].set("IsSelected", true);
                 }
 
@@ -232,23 +232,57 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
         GL.TransitionRegion = Backbone.Marionette.Region.extend({
             initialize: function () {
             },
+            addBaseAnimate: function (view) {
+                var styles = {
+                    "-moz-transition": "margin-left .25s, margin-right .25s",
+                    "-webkit-transition": "margin-left .25s, margin-right .25s",
+                    "-o-transition": "margin-left .25s, margin-right .25s",
+                    "-ms-transition": "margin-left .25s, margin-right .25s",
+                    "transition": "margin-left .25s, margin-right .25s"
+                };
+                view.$el.css(styles);
+            },
             addTransitionInit: function (view) {
-                view.$el.addClass("loaded");
+                var styles = {
+                    "margin-left": (view.$el.parent().width() * -1) + "px",
+                    "margin-right": (view.$el.parent().width() * 1) + "px"
+                };
+                view.$el.css(styles);
             },
             removeTransitionInit: function (view) {
-                view.$el.removeClass("loaded");
+                var styles = {
+                    "margin-left": "",
+                    "margin-right": ""
+                };
+                view.$el.css(styles);
             },
             addTransitionIn: function (view) {
-                view.$el.addClass("ondisplay");
+                var styles = {
+                    "margin-left": "0px",
+                    "margin-right": "0px"
+                };
+                view.$el.css(styles);
             },
             removeTransitionIn: function (view) {
-                view.$el.removeClass("ondisplay");
+                var styles = {
+                    "margin-left": "",
+                    "margin-right": ""
+                };
+                view.$el.css(styles);
             },
             addTransitionOut: function (view) {
-                view.$el.addClass("unloaded");
+                var styles = {
+                    "margin-left": (view.$el.parent().width() * 1) + "px",
+                    "margin-right": (view.$el.parent().width() * -1) + "px"
+                };
+                view.$el.css(styles);
             },
             removeTransitionOut: function (view) {
-                view.$el.removeClass("unloaded");
+                var styles = {
+                    "margin-left": "",
+                    "margin-right": ""
+                };
+                view.$el.css(styles);
             },
             show: function (view) {
                 var self = this;
@@ -257,7 +291,7 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
                 var isDifferentView = view !== this.currentView;
                 if (isDifferentView) {
                     this.promiseClose(view).done(function () {
-                        view.$el.addClass("baseAnimation");
+                        self.addBaseAnimate(view);
                         self.addTransitionInit(view);
                         console.log("loaded added");
                         view.render();
@@ -303,23 +337,27 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
 
 
         GL.SlideInOutTransitionRegion = GL.TransitionRegion.extend({
+
+            addBaseAnimate: function (view) {
+                view.$el.addClass("baseAnimation");
+            },
             addTransitionInit: function (view) {
-                view.$el.addClass("slideinoutloaded");
+                view.$el.addClass("loaded");
             },
             removeTransitionInit: function (view) {
-                view.$el.removeClass("slideinoutloaded");
+                view.$el.removeClass("loaded");
             },
             addTransitionIn: function (view) {
-                view.$el.addClass("slideinoutondisplay");
+                view.$el.addClass("ondisplay");
             },
             removeTransitionIn: function (view) {
-                view.$el.removeClass("slideinoutondisplay");
+                view.$el.removeClass("ondisplay");
             },
             addTransitionOut: function (view) {
-                view.$el.addClass("slideinoutunloaded");
+                view.$el.addClass("unloaded");
             },
             removeTransitionOut: function (view) {
-                view.$el.removeClass("slideinoutunloaded");
+                view.$el.removeClass("unloaded");
             },
 
         });

@@ -82,7 +82,7 @@ require([
         security: "#top_right",
         content: {
             selector: "#app_main_content",
-            regionType: app.GL.SlideInOutTransitionRegion
+            regionType: app.GL.TransitionRegion
         }
     });
     app.addInitializer(function () {
