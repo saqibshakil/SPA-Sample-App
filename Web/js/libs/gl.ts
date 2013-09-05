@@ -242,10 +242,10 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
                 };
                 view.$el.css(styles);
             },
-            addTransitionInit: function (view) {
+            addTransitionInit: function (view, region) {
                 var styles = {
-                    "margin-left": (view.$el.parent().width() * -1) + "px",
-                    "margin-right": (view.$el.parent().width() * 1) + "px"
+                    "margin-left": (region.$el.width() * -1) + "px",
+                    "margin-right": (region.$el.width() * 1) + "px"
                 };
                 view.$el.css(styles);
             },
@@ -292,7 +292,7 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
                 if (isDifferentView) {
                     this.promiseClose(view).done(function () {
                         self.addBaseAnimate(view);
-                        self.addTransitionInit(view);
+                        self.addTransitionInit(view, self);
                         console.log("loaded added");
                         view.render();
                         if (isDifferentView || isViewClosed) {
@@ -331,8 +331,19 @@ function (namespace, Backbone, s, Marionette, $, _, ko) {
                 self.removeTransitionIn(cView);
                 self.addTransitionOut(cView);
                 console.log("ondisplay removed unloaded added");
+                if (!self.isTransitionSupported()) {
+                    self.removeTransitionOut(cView);
+                    console.log("unloaded added");
+                    self.close();
+                    deferred.resolve();
+                }
                 return deferred.promise();
             },
+            isTransitionSupported: function () {
+                var style;
+                style = document.documentElement.style;
+                return ((style.webkitTransition) !== undefined || (style.MozTransition) !== undefined || (style.OTransition) !== undefined || (style.MsTransition) !== undefined || (style.transition) !== undefined);
+            }
         });
 
 

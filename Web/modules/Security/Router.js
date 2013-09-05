@@ -75,7 +75,7 @@ function (namespace, Backbone, Marionette, $, _) {
             loginwithcallback: function (route) {
                 this.returnAddress = "/" + route;
                 this.login();
-            },
+            }
 
 
         };
