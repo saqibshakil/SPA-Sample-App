@@ -1,5 +1,5 @@
 ﻿require.config({
-    urlArgs: "bust=" + "V2",
+    urlArgs: "bust=" + "V3",
     paths: {
         libs: "libs",
         templates: "../templates",

@@ -1,7 +1,7 @@
 declare var require:any;
 // Set the require.js configuration
 require.config({
-    urlArgs: "bust=" + "V2", 
+    urlArgs: "bust=" + "V3", 
 	// If no baseUrl is explicitly set in the configuration, the default value
     // will be the location of the HTML page that loads require.js.
     // If a data-main attribute is used, that path will become the baseUrl.
